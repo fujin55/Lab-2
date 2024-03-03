@@ -31,9 +31,9 @@ Book::Book(Book&& other) {
 	other.title = nullptr;
 }
 
-Book& operator=(Book&& right) {
-	swap(author, right.author); //swapping data pointers
-	swap(title, right.title); //Swapping vector sizes
+Book::Book& operator=(Book other) {
+	swap(author, other.author); 
+	swap(title, other.title); 
 	return *this;
 }
 

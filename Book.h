@@ -10,6 +10,7 @@ public:
 	Book(string a, string t);
 	Book(const Book& other);
 	Book(Book&& other);
+	Book& operator=(Book&& other);
 	void Print(ostream& out) const;
 	void SetAuthor(string a);
 	void SetTitle(string t);
