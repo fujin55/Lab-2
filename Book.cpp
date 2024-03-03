@@ -10,6 +10,9 @@ ostream& operator<<(ostream& os, const Book& b) {
 	return os;
 }
 
+
+
+
 Book::Book() {
 
 }
@@ -31,11 +34,13 @@ Book::Book(Book&& other) {
 	other.title = nullptr;
 }
 
-Book::Book& operator=(Book other) {
-	swap(author, other.author); 
-	swap(title, other.title); 
+Book& Book::operator=(Book& other)
+{
+	swap(author, other.author);
+	swap(title, other.title);
 	return *this;
 }
+
 
 void Book::SetAuthor(string a) {
 	this->author = a;
