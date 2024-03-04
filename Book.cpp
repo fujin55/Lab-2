@@ -31,7 +31,7 @@ Book::Book(const Book& other) {
 }
 
 //Move constructor
-Book::Book(Book&& other) {
+Book::Book(Book&& other) noexcept{
 	author = other.author; 
 	title = other.title; 
 	other.author = nullptr; 
@@ -47,7 +47,7 @@ Book& Book::operator=(const Book& other){
 }
 
 //Move assignment operator
-Book& Book::operator=(Book&& other){
+Book& Book::operator=(Book&& other)noexcept{
 	author = other.author; 
 	title = other.title; 
 	other.author = nullptr; 

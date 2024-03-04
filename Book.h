@@ -10,9 +10,9 @@ public:
 	Book();
 	Book(string a, string t);
 	Book(const Book& other);
-	Book(Book&& other) ;
+	Book(Book&& other) noexcept;
 	Book& operator=(const Book& other);
-	Book& operator=(Book&& other);
+	Book& operator=(Book&& other) noexcept;
 
 	void Print(ostream& out) const;
 	void SetAuthor(string a);

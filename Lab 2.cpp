@@ -22,14 +22,14 @@ int main()
     e.SetTitle("Madeline Miller");
     cout << "e: " << e << endl;
 
-    Library en;
+    /*Library en;
     cout << "e: " << en << endl;
     
     Library l1 = { {"<?>", "<?>"},
     {"<?>", "<?>"},
     {"<?>", "<?>"} };
     cout << "l1: " << l1 << endl;
-    /*Library l2(2);
+    Library l2(2);
     cout << "l2: " << l2 << endl;
     l2[0] = { "<?>", "<?>" };
     l2[1] = { "<?>", "<?>" };
