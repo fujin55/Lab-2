@@ -1,22 +1,25 @@
+#pragma once
 #include <string>
 using namespace std;
 
 class Book{
 	string author, title;
-protected:
-	friend ostream& operator<<(ostream& os, const Book& b);
-public:
 	
+public:
+	friend ostream& operator<<(ostream& os, const Book& b);
 	Book();
-	Book(string a, string t);
+	Book(const string& a, const string& t);
+	Book(string&& a, string&& t);
 	Book(const Book& other);
 	Book(Book&& other) noexcept;
 	Book& operator=(const Book& other);
 	Book& operator=(Book&& other) noexcept;
 
 	void Print(ostream& out) const;
-	void SetAuthor(string a);
-	void SetTitle(string t);
+	void SetAuthor(const string& a);
+	void SetTitle(const string& t);
+	void SetAuthor(string&& a);
+	void SetTitle(string&& t);
 	string GetAuthor() const;
 	string GetTitle() const;
 	~Book();

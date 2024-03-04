@@ -1,6 +1,7 @@
 #include "Library.h"
 #include <iostream>
 #include <string>
+#include <initializer_list>
 
 using namespace std;
 
@@ -64,8 +65,7 @@ size_t Library::GetSize() const{
 }
 
 ostream& operator<<(std::ostream& ostr, const Library& l) {
-	for (std::size_t i = 0; i < l.GetSize(); i++)
-	{
+	for (std::size_t i = 0; i < l.GetSize(); i++){
 		if (i > 0)
 			ostr << ',';
 		ostr << l[i];

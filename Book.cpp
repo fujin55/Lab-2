@@ -1,6 +1,7 @@
 #include "Book.h"
 #include <iostream>
 #include <string>
+#include <initializer_list>
 
 using namespace std;
 
@@ -19,9 +20,15 @@ Book::Book() {
 }
 
 //Constructor which accepts author and title
-Book::Book(string a, string t){
-	author = a;
-	title = t;
+Book::Book(const string& a,const string& t){
+	(*this).author = a;
+	(*this).title = t;
+}
+
+Book::Book(string&& a, string&& t)
+{
+	(*this).author = move(a);
+	(*this).title = move(t);
 }
 
 //Copy constructor
@@ -30,12 +37,12 @@ Book::Book(const Book& other) {
 	title = other.title;
 }
 
-//Move constructor
+//Move constructor !!!!
 Book::Book(Book&& other) noexcept{
 	author = other.author; 
 	title = other.title; 
-	other.author = nullptr; 
-	other.title = nullptr;
+	other.author = "";
+	other.title = "";
 }
 
 //Copy asignment operator
@@ -46,22 +53,31 @@ Book& Book::operator=(const Book& other){
 	return *this;
 }
 
-//Move assignment operator
+//Move assignment operator !!!!
 Book& Book::operator=(Book&& other)noexcept{
 	author = other.author; 
 	title = other.title; 
-	other.author = nullptr; 
-	other.title = nullptr; 
-
+	other.author = "";
+	other.title = "";
+	return *this;
 }
 
 
-void Book::SetAuthor(string a) {
-	this->author = a;
+void Book::SetAuthor(const string& a) {
+	(*this).author = a;
 }
 
-void Book::SetTitle(string t) {
-	this->title = t;
+void Book::SetTitle(const string& t) {
+	(*this).title = t;
+}
+
+void Book::SetAuthor(string&& a) {
+	(*this).author = move(a);
+}
+
+void Book::SetTitle(string&& t) {
+	(*this).title = move(t);
+
 }
 
 string Book::GetAuthor() const {

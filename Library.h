@@ -1,3 +1,4 @@
+#pragma once
 #include "Book.h"
 #include <initializer_list>
 using namespace std;
@@ -5,9 +6,8 @@ using namespace std;
 class Library {
 	Book* array;
 	size_t size;
-protected:
-	friend ostream& operator<<(ostream& ostr, const Library& l);
 public:
+	friend ostream& operator<<(ostream& ostr, const Library& l);
 	Library();
 	Library(std::initializer_list<Book> list);
 	Library(const Library& orig);
