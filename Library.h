@@ -3,7 +3,10 @@
 using namespace std;
 
 class Library {
-	/* ...................... */
+	Book* array;
+	size_t size;
+protected:
+	friend ostream& operator<<(ostream& ostr, const Library& l);
 public:
 	Library();
 	Library(std::initializer_list<Book> list);
@@ -11,12 +14,9 @@ public:
 	Library(Library&& orig);
 	Library& operator=(const Library& right);
 	Library& operator=(Library&& right);
-	Book& operator[](std::size_t index);
-	const Book& operator[](std::size_t index) const;
-	std::size_t GetSize() const;
+	Book& operator[](size_t index);
+	const Book& operator[](size_t index) const;
+	size_t GetSize() const;
 	~Library();
-	//Only for the list implementation
-	void push_back(const Book&);
-	void push_back(Book&&);
-	Book pop_back();
+	
 };

@@ -4,6 +4,7 @@
 
 using namespace std;
 
+//::ostream print operator <<,
 ostream& operator<<(ostream& os, const Book& b) {
 
 	b.Print(os);
@@ -12,21 +13,24 @@ ostream& operator<<(ostream& os, const Book& b) {
 
 
 
-
+//Default constructor
 Book::Book() {
 
 }
 
+//Constructor which accepts author and title
 Book::Book(string a, string t){
 	author = a;
 	title = t;
 }
 
+//Copy constructor
 Book::Book(const Book& other) {
 	author = other.author;
 	title = other.title;
 }
 
+//Move constructor
 Book::Book(Book&& other) {
 	author = other.author; 
 	title = other.title; 
@@ -34,11 +38,21 @@ Book::Book(Book&& other) {
 	other.title = nullptr;
 }
 
-Book& Book::operator=(Book& other)
-{
-	swap(author, other.author);
-	swap(title, other.title);
+//Copy asignment operator
+Book& Book::operator=(const Book& other){
+	Book c = other;
+	swap(author, c.author);
+	swap(title, c.title);
 	return *this;
+}
+
+//Move assignment operator
+Book& Book::operator=(Book&& other){
+	author = other.author; 
+	title = other.title; 
+	other.author = nullptr; 
+	other.title = nullptr; 
+
 }
 
 
@@ -60,5 +74,9 @@ string Book::GetTitle() const {
 
 void Book::Print(ostream& out) const {
 	cout << title << " by " << author << endl;
+}
+
+Book::~Book() {
+
 }
 
